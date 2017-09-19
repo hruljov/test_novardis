@@ -1,6 +1,6 @@
 # test_novardis
 
-> A Vue.js project
+> test_novardis
 
 ## Build Setup
 

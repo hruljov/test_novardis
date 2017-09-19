@@ -1,9 +1,3 @@
-<template>
-  <div class="hello">
-    <h1>{{ postData.menu }}</h1>
-  </div>
-</template>
-
 <script>
 import postData from './db.json'
 export default {
@@ -15,6 +9,12 @@ export default {
   }
 }
 </script>
+<template>
+  <div class="hello">
+    <h1>{{ postData.menu }}</h1>
+  </div>
+</template>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
