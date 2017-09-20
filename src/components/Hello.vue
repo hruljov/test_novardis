@@ -1,38 +1,371 @@
+<template>
+  <div class="hello">
+    <div class="page">
+        <div class="content">
+          <div class="orders">
+            <div class="orders__item" v-for="product in products">
+              <img src="img/order.jpg" alt="Заказ" class="orders__photo">
+              <h3 class="orders__name"> {{ product.name }} </h3>
+            <div class="orders__info">
+              <div class="orders__description">{{ product.category }}</div>
+              <div class="orders__description">{{ product.description }}</div>
+              <div class="orders__description">{{ product.price }}</div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</template>
+
 <script>
 import postData from './db.json'
 export default {
-  name: 'hello',
+  name: 'products',
+  // props: {
+  //   items: {
+  //     type: Array,
+  //     required: true
+  //   }
+  // },
+  type: Array,
   data () {
     return {
-      postData: postData
+      products: postData.products
     }
   }
 }
 </script>
-<template>
-  <div class="hello">
-    <h1>{{ postData.menu }}</h1>
-  </div>
-</template>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+/*//GLOBAL*/
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+h1 {
+    font-weight: 500;
+    font-family: 'Prototypster', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 50px;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
+/*//PAGE*/
+.page {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
 }
 
-a {
-  color: #42b983;
+.content {
+    background-size: auto;
+    background-position: center;
+    background-repeat: repeat;
+    flex: 1 1 auto;
+ }
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*//BLOCKS
+//header*/
+.header {
+    @extend .container;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.header__cover {
+    height: 97px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header__title {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/*sorting*/
+.sort {
+    @extend .container;
+    text-align: center;
+    padding: 10px 0 15px;
+    font-size: 14px;
+}
+
+.sort__item {
+    color: #ff5e42;
+    display: inline-block;
+    border-bottom: 1px dashed #ff5e42;
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+    margin-left: 12px;
+
+    &:after{
+        color: #2a2a2a;
+        position: absolute;
+        right: -16px;
+        top: 0;
+    }
+
+    &--bottom::after{
+        content: "\25bc";
+    }
+
+    &--top::after {
+        content: "\25b2";
+    }
+}
+.orders {
+    max-width: 960px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.orders__item {
+    max-width:220px;
+    align: left;
+    vertical-align: top;
+    display: inline-block;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 -5px 10px -5px #999;
+    border: 3px solid transparent;
+    transition: all 0.25s ease-out;
+    margin: 20px 10px;
+    text-align: left;
+    font-size: 13px;
+
+}
+.orders__item:hover{
+    border-color: #ff5e42;
+}
+
+.orders__photo {
+    width: auto;
+}
+
+.orders__name {
+    margin: 17px 0 0;
+}
+
+.orders__info {
+    line-height: 1.5;
+    min-height: 132px;
+}
+
+.orders__status {
+    margin-bottom: 12px;
+}
+
+.orders__button {
+    color: #b8b8b8;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: 'Prototypster', sans-serif;
+    letter-spacing: 0.01em;
+    margin: 15px 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+    outline: none;
+    border: none;
+}
+
+.button {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 36px;
+    padding: 0;
+    transition: all 0.25s ease;
+    background: transparent;
+    outline: none;
+    border: none;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Prototypster', sans-serif;
+    letter-spacing: 0.01em;
+    color: #ff5e42;
+}
+
+.button-scroll {
+    padding: 40px;
+}
+
+/*footer*/
+.footer {
+    background-size: auto;
+    background-position: 0 0;
+    background-repeat: repeat no-repeat;
+    flex: 0 0 auto;
+
+    .button {
+        font-size: 28px;
+        margin-left: 75px;
+
+        @media (max-width: $screen.phone) {
+            margin-top: 20px;
+            margin-left: 0;
+        }
+    }
+}
+
+.footer__container {
+    @extend .container;
+    padding: 20px;
+
+    @media (max-width: $screen.phone) {
+        padding: 20px 0;
+    }
+}
+
+.form-signup {
+    padding: 0 25px;
+}
+
+.form-signup__fieldset {
+    border: none;
+    margin-bottom: 20px;
+    padding: 0;
+
+    @media (max-width: $screen.phone) {
+        margin-bottom: 0;
+    }
+}
+
+.textfield {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: .15s linear;
+    color: #2a2a2a;
+    display: inline-block;
+    min-width: 210px;
+    padding: 10px;
+    background: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px -5px #999 inset;
+    text-align: left;
+    letter-spacing: 0;
+}
+
+.textfield__label {
+    font-family: 'Prototypster', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-right: 20px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.textfield__error {
+    color: #ff5e42;
+    font-size: 15px;
+    display: none;
+    margin-left: 75px;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 2px;
+    height: 28px;
+    vertical-align: middle;
+    position: relative;
+    margin-left: 70px;
+}
+
+.checkbox:not(checked) {
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkbox + label {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: 'Prototypster', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    padding: 4px 0 4px 40px;
+}
+
+.checkbox + label::before {
+    transition: 0.25s ease-out;
+    content: '';
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: transparent;
+    border: 2px solid #dedede;
+    border-radius: 4px;
+}
+
+.checkbox + label::after {
+    transition: 0.25s ease-out;
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 7px;
+    opacity: 0;
+    z-index: 2;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.checkbox:checked + label::before {
+    background: transparent;
+    border-color: #dedede;
+}
+
+.checkbox:checked + label::after {
+    opacity: 1;
+    top: 7px;
+}
+
+.form-singup {
+    padding: 0 25px;
+}
+
+.form-singup__fieldset {
+    margin: 0;
+    border: none;
+    margin-bottom: 20px;
+    padding: 0;
 }
 </style>

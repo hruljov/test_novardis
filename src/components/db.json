@@ -1,18 +1,62 @@
 
 {
-  "menu": "Файл",
-  "commands": [
+  "products": [
       {
-          "title": "Новый",
-          "action":"CreateDoc"
+          "ean": "1001",
+          "name": "PHOTOSMART",
+          "description": "Point and shoot simplicity in a 4 MP camera.",
+          "category": "CAMERAS",
+          "price":"15000"
       },
       {
-          "title": "Открыть",
-          "action": "OpenDoc"
+        "ean": "1002",
+        "name": "High quality tripod",
+        "description": "High quality tripod for extra stability and support",
+        "category": "ACCESSORIES",
+        "price":"25500"
       },
       {
-          "title": "Закрыть",
-          "action": "CloseDoc"
+        "ean": "1003",
+        "name": "DIGITAL CAMERA",
+        "description": "Zoom Digital Camera, 8 MP, 2.5 LCD",
+        "category": "CAMERAS",
+        "price":"13500"
+      },
+      {
+        "ean": "1004",
+        "name": "BATTERY VIDEO LIGHT",
+        "description": "20-watt video light compatible with InfoLIYHIUM M-series batteries",
+        "category": "SUPPLIES",
+        "price":"8500"
+      },
+      {
+        "ean": "1006",
+        "name": "VIDEOTAPE 3 P",
+        "description": "3-pack Digital8 Tape - 60 min. Make the most of the digital power of your Digital8 camcorder with 500-line resolution. Transfer your recordings to your computer. Ideal for LP mode.",
+        "category": "SUPPLIES",
+        "price":"1750"
+      },
+      {
+        "ean": "1007",
+        "name": "VIDEOTAPE 3 P",
+        "description": "3-pack Digital8 Tape - 60 min. Make the most of the digital power of your Digital8 camcorder with 500-line resolution. Transfer your recordings to your computer. Ideal for LP mode.",
+        "category": "SUPPLIES",
+        "price":"1750"
+      },
+      {
+        "ean": "1008",
+        "name": "VIDEOTAPE 3 P",
+        "description": "3-pack Digital8 Tape - 60 min. Make the most of the digital power of your Digital8 camcorder with 500-line resolution. Transfer your recordings to your computer. Ideal for LP mode.",
+        "category": "SUPPLIES",
+        "price":"1750"
+      },
+
+      {
+        "ean": "1010",
+        "name": "ADAPTER AC INFOLITHIUM F CYBERSHOT",
+        "description": "AC Power Adaptor",
+        "category": "SUPPLIES",
+        "price":"4350"
       }
    ]
 }
